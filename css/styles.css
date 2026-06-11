@@ -167,12 +167,18 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 36px;
-  padding: 14px clamp(20px, 4vw, 48px);
+  height: 74px;
+  padding: 0 clamp(20px, 4vw, 48px) 0 0;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.nav__logo img { height: 46px; width: auto; }
+.nav__logo {
+  align-self: stretch;
+  display: flex;
+  margin-left: clamp(8px, 2vw, 28px);
+}
+.nav__logo img { height: 100%; width: auto; }
 .nav__links {
   display: flex;
   gap: 28px;
@@ -840,6 +846,5 @@ button { font-family: inherit; cursor: pointer; }
   .rcard--photo { aspect-ratio: 4 / 3.2; }
   .rcard--soon { min-height: 180px; }
   .films__grid { grid-template-columns: 1fr; }
-  .nav { gap: 16px; }
-  .nav__logo img { height: 38px; }
+  .nav { gap: 16px; height: 58px; }
 }
