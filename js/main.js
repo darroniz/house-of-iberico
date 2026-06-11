@@ -105,9 +105,10 @@ const lightbox = document.querySelector(".lightbox");
 const lbFrame = lightbox.querySelector(".lightbox__frame");
 const lbTitle = lightbox.querySelector(".lightbox__title");
 
-function openLightbox(item) {
+function openLightbox(item, wide) {
   lbTitle.textContent = item.t;
   lbFrame.innerHTML = `<iframe src="https://iframe.mediadelivery.net/embed/${BUNNY_LIB}/${item.g}?autoplay=true&preload=true" allow="autoplay;fullscreen" allowfullscreen title="${item.t}"></iframe>`;
+  lightbox.classList.toggle("lightbox--wide", !!wide);
   lightbox.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -119,6 +120,37 @@ function closeLightbox() {
 lightbox.querySelector(".lightbox__close").addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+
+/* ---------- capítulos de Carving y Production ---------- */
+const CHAPTERS = {
+  "carving-1": "09766313-230e-4eed-8675-216c8bbffc03",
+  "carving-2": "c1b99967-9644-4e29-9c11-21419fd1a1cf",
+  "carving-3": "dd731dfb-f4f4-4d76-a4e6-314b6389b9df",
+  "carving-4": "b35dcb9b-9a0f-4935-8a75-ff97f973dd23",
+  "carving-5": "5e94dc97-46e5-44ea-8f19-f854dc967232",
+  "carving-6": "6cd0ac07-d6ac-4979-b28b-6be3282d7bc1",
+  "carving-7": "ec859a24-8da2-473a-bc6a-d2d9ed6a8989",
+  "carving-master": "6a25c2c5-0450-4763-82cf-ca6d5a53267e",
+  "production-1": "c5c63dff-9772-43cf-baa1-9e78302649b9",
+  "production-2": "726a2a55-72cd-4856-86c6-356e1e358ca6",
+  "production-3": "60046d57-a595-4ad0-98ca-14b7316b3434",
+  "production-4": "2776ed5e-8add-44ac-99e3-c79e33c11c54",
+  "production-5": "0f3939c6-4320-4395-b222-46422541afe3",
+  "production-6": "731e9f3f-f6e2-43df-87d4-a2fdc8f5c7e5",
+  "production-master": "19498ada-1e65-4608-bcd1-79447b1ba981"
+};
+
+document.querySelectorAll(".chapters li[data-key]").forEach((li) => {
+  const guid = CHAPTERS[li.dataset.key];
+  if (!guid) return;
+  li.classList.add("is-playable");
+  li.setAttribute("tabindex", "0");
+  li.setAttribute("role", "button");
+  li.setAttribute("aria-label", "Watch: " + li.dataset.title);
+  const open = () => openLightbox({ t: li.dataset.title, g: guid }, true);
+  li.addEventListener("click", open);
+  li.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+});
 
 /* ---------- vídeos del embajador ---------- */
 document.querySelectorAll(".film").forEach((film) => {
