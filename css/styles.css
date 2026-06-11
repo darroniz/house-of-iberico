@@ -141,6 +141,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .btn--ghost { border: 1.5px solid #fff; color: #fff; }
 .btn--ghost:hover { background: #fff; color: var(--red); transform: translateY(-2px); }
+.btn--dark {
+  background: var(--ink);
+  color: #fff;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 14px 34px;
+  border-radius: 14px;
+  box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.55);
+}
+.btn--dark:hover { background: #000; transform: translateY(-2px); }
 .btn--white { background: #fff; color: var(--red); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.4); }
 .btn--white:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -14px rgba(0, 0, 0, 0.5); }
 .btn--link { padding: 15px 4px; color: #fff; }
@@ -233,26 +245,17 @@ button { font-family: inherit; cursor: pointer; }
 .hero__title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(58px, 7.2vw, 118px);
-  font-weight: 800;
-  line-height: 0.92;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  margin: 26px 0 6px;
-}
-.hero__title-accent {
   font-family: var(--script);
   font-weight: 500;
-  text-transform: none;
-  font-size: 0.62em;
-  line-height: 1.05;
-  padding-left: 0.08em;
+  font-size: clamp(56px, 6.4vw, 104px);
+  line-height: 1.08;
+  margin: 30px 0 30px;
 }
 .hero__by {
-  font-family: var(--script);
-  font-size: clamp(24px, 2.4vw, 34px);
-  line-height: 1.2;
-  opacity: 0.95;
+  font-size: clamp(20px, 1.9vw, 27px);
+  font-weight: 600;
+  line-height: 1.25;
+  opacity: 0.96;
 }
 .hero__sub {
   max-width: 420px;
@@ -717,21 +720,24 @@ button { font-family: inherit; cursor: pointer; }
   padding: clamp(80px, 10vw, 140px) 0;
 }
 .cta__title {
-  font-size: clamp(40px, 5.5vw, 76px);
-  font-weight: 800;
-  line-height: 1;
-  text-transform: uppercase;
-  margin: 24px 0 18px;
+  font-family: var(--script);
+  font-weight: 500;
+  font-size: clamp(40px, 4.6vw, 68px);
+  line-height: 1.12;
+  margin: 0 0 22px;
 }
-.cta__title .accent {
-  display: block;
-  font-size: 0.78em;
-  margin-bottom: 0.12em;
+.cta__strong {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-weight: 700;
+  line-height: 1.5;
 }
 .cta__sub {
   max-width: 520px;
   margin: 0 auto 36px;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* ---------- footer ---------- */
